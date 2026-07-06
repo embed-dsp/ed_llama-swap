@@ -34,6 +34,7 @@ Enter the `bin` directory.
 Type the following command, where `<release-number>` is the desired release number.
 
 ```sh
+# Command
 ./download_install.sh <release-number>
 ```
 
@@ -43,10 +44,10 @@ installed in the local file system in `/opt/llama-swap`:
 ```text
 /opt/llama-swap
 ├── bin
-│   ├── llama-swap
-│   └── run_llama-swap.sh
+│   ├── llama-swap          # llama-swap proxy server
+│   └── run_llama-swap.sh   # Run the llama-swap proxy server with the configuration.
 └── etc
-    └── config.yaml
+    └── config.yaml         # Configuration of llama-swap server and local LLM's.
 ```
 
 Symbolic links are created from `/opt/bin` to `/opt/llama-swap/bin`.
