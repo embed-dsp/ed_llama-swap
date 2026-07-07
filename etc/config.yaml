@@ -30,56 +30,24 @@ models:
   # https://unsloth.ai/docs/models/qwen3.6
   # https://huggingface.co/unsloth/Qwen3.6-27B-MTP-GGUF
 
-  # MTP Version: 91.7 / 90.1
-  Qwen3.6-27B-UD-Q5_K_XL (128k / 39 ts) - Thinking Precise:
-    cmd: >
-      ${latest-llama}
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q5_K_XL.gguf
-      --seed 1234
-      --fit off
-      --ctx-size 131072
-      --flash-attn on
-      --split-mode layer
-      --tensor-split 54,46
-      --n-gpu-layers 999
-      --cache-type-k q8_0
-      --cache-type-v q8_0
-      --temp 0.6
-      --top-k 20
-      --top-p 0.95
-      --min-p 0.0
-      --presence-penalty 0.0
-      --repeat-penalty 1.0
-      --reasoning on
-      --chat-template-kwargs '{"preserve_thinking": true}'
-      --batch-size 4096
-      --ubatch-size 512
-      --spec-type draft-mtp
-      --spec-draft-n-max 4
-      --jinja
-      --parallel 1
-    aliases:
-      - "qwen3.6-27b-q5"
-      - "claude-fable-5"
-      - "claude-opus-4-8"
+  # https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates
+  # https://huggingface.co/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp
 
-      # --cache-type-k-draft q8_0
-      # --cache-type-v-draft q8_0
-
-      # NOTE: This makes the model fail!
-      # --spec-draft-n-min 0.75
-      # --spec-draft-p-min 0.75
+      # --chat-template-file /opt/llm_models/froggeric/Qwen-Fixed-Chat-Templates/chat_template.jinja
+      # --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
 
   # MTP Version: 90.2 / 89.7
-  Qwen3.6-27B-UD-Q4_K_XL (TIV 160k / 42 ts) - Thinking Precise:
+  Qwen3.6-27B-UD-Q4_K_XL (TIV 160k / 45 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
+      --verbosity 3
       --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-F16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q4_K_XL.gguf
+      --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
       --fit off
       --ctx-size 163840
+      --image-min-tokens 1024
       --flash-attn on
       --split-mode layer
       --tensor-split 54,46
@@ -102,7 +70,7 @@ models:
       --parallel 1
     aliases:
       - "qwen3.6-27b-q4"
-      - "claude-sonnet-4-6"
+      # - "claude-sonnet-4-6"
 
       # --cache-type-k-draft q8_0
       # --cache-type-v-draft q8_0
@@ -111,62 +79,21 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # MTP Version.
-  # Qwen3.6-27B-UD-Q5_K_XL - Thinking General: # FIXME: Update
-  #   cmd: >
-  #     ${latest-llama}
-  #     --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q5_K_XL.gguf
-  #     --seed 1234
-  #     --fit off
-  #     --ctx-size 163840
-  #     --flash-attn on
-  #     --split-mode layer
-  #     --tensor-split 54,46
-  #     --n-gpu-layers 999
-  #     --cache-type-k q8_0
-  #     --cache-type-v q8_0
-  #     --temp 1.0
-  #     --top-k 20
-  #     --top-p 0.95
-  #     --min-p 0.0
-  #     --presence-penalty 1.5
-  #     --repeat-penalty 1.0
-  #     --reasoning on
-  #     --chat-template-kwargs '{"preserve_thinking": true}'
-  #     --batch-size 4096
-  #     --ubatch-size 512
-  #     --spec-type draft-mtp
-  #     --spec-draft-n-max 4
-  #     --jinja
-  #     --parallel 1
-  #   aliases:
-  #     - "qwen3.6-27b-q5"
-
-      # --cache-type-k-draft q8_0
-      # --cache-type-v-draft q8_0
-
-      # NOTE: This makes the model fail!
-      # --spec-draft-n-min 0.75
-      # --spec-draft-p-min 0.75
-
-  # ============================== Qwen3.6-35B-A3B =============================
-
-  # https://qwen.ai/blog?id=qwen3.6-35b-a3b
-  # https://unsloth.ai/docs/models/qwen3.6
-  # https://huggingface.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF
-
-  # MTP Version: 94.6 / 92.4
-  Qwen3.6-35B-A3B-UD-Q5_K_S (TIV 128k / 125 ts) - Thinking Precise:
+  # MTP Version: 91.7 / 90.1
+  Qwen3.6-27B-UD-Q5_K_XL (128k / 43 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q5_K_S.gguf
+      --verbosity 3
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-F16.gguf
+      --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q5_K_XL.gguf
+      --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
       --fit off
       --ctx-size 131072
+      --image-min-tokens 1024
       --flash-attn on
       --split-mode layer
-      --tensor-split 51,49
+      --tensor-split 54,46
       --n-gpu-layers 999
       --cache-type-k q8_0
       --cache-type-v q8_0
@@ -181,22 +108,45 @@ models:
       --batch-size 4096
       --ubatch-size 512
       --spec-type draft-mtp
-      --spec-draft-n-max 3
+      --spec-draft-n-max 4
       --jinja
       --parallel 1
     aliases:
-      - "qwen3.6-35b-a3b-q5"
-      - "claude-haiku-4-5-20251001"
+      - "qwen3.6-27b-q5"
+      # - "claude-fable-5"
+      # - "claude-opus-4-8"
+
+      # --cache-type-k-draft q8_0
+      # --cache-type-v-draft q8_0
+
+      # NOTE: This makes the model fail!
+      # --spec-draft-n-min 0.75
+      # --spec-draft-p-min 0.75
+
+  # ============================== Qwen3.6-35B-A3B =============================
+
+  # https://qwen.ai/blog?id=qwen3.6-35b-a3b
+  # https://unsloth.ai/docs/models/qwen3.6
+  # https://huggingface.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF
+
+  # https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates
+  # https://huggingface.co/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp
+
+      # --chat-template-file /opt/llm_models/froggeric/Qwen-Fixed-Chat-Templates/chat_template.jinja
+      # --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
 
   # MTP Version: 90.5 / 91.4
-  Qwen3.6-35B-A3B-UD-Q4_K_XL (TIV 192k / 126 ts) - Thinking Precise:
+  Qwen3.6-35B-A3B-UD-Q4_K_XL (TIV 192k / 130 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
+      --verbosity 3
       --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf
+      --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
       --fit off
       --ctx-size 196608
+      --image-min-tokens 1024
       --flash-attn on
       --split-mode layer
       --tensor-split 52,48
@@ -240,98 +190,61 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # MTP Version.
-  # Qwen3.6-35B-A3B-UD-Q4_K_XL - Thinking General: # FIXME: Update
-  #   cmd: >
-  #     ${latest-llama}
-  #     --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
-  #     --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf
-  #     --seed 1234
-  #     --fit off
-  #     --ctx-size 196608
-  #     --flash-attn on
-  #     --split-mode layer
-  #     --tensor-split 54,46
-  #     --n-gpu-layers 999
-  #     --cache-type-k q8_0
-  #     --cache-type-v q8_0
-  #     --temp 1.0
-  #     --top-k 20
-  #     --top-p 0.95
-  #     --min-p 0.0
-  #     --presence-penalty 1.5
-  #     --repeat-penalty 1.0
-  #     --reasoning on
-  #     --chat-template-kwargs '{"preserve_thinking": true}'
-  #     --batch-size 4096
-  #     --ubatch-size 512
-  #     --spec-type draft-mtp
-  #     --spec-draft-n-max 4
-  #     --jinja
-  #     --parallel 1
-  #   aliases:
-  #     - "qwen3.6-35b-a3b-q4"
-
-      # --cache-type-k-draft q8_0
-      # --cache-type-v-draft q8_0
-
-      # NOTE: This makes the model fail!
-      # --spec-draft-n-min 0.75
-      # --spec-draft-p-min 0.75
-
-  # =============================== Qwen3-VL-32B ===============================
-
-  # https://unsloth.ai/docs/models/tutorials/qwen3-how-to-run-and-fine-tune/qwen3-vl-how-to-run-and-fine-tune
-  # https://huggingface.co/unsloth/Qwen3-VL-32B-Instruct-GGUF
-
-  # 86.2 / 69.8
-  Qwen3-VL-32B-Instruct-UD-Q4_K_XL (TIV 24k / 19 ts):
+  # MTP Version: 89.7 / 92.9
+  Qwen3.6-35B-A3B-UD-Q5_K_S (TIV 112k / 129 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
-      --mmproj /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/Qwen3-VL-32B-Instruct-UD-Q4_K_XL.gguf
+      --verbosity 3
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
+      --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q5_K_S.gguf
+      --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
       --fit off
-      --ctx-size 24576
+      --ctx-size 114688
+      --image-min-tokens 1024
       --flash-attn on
       --split-mode layer
-      --tensor-split 54,46
+      --tensor-split 50,50
       --n-gpu-layers 999
       --cache-type-k q8_0
       --cache-type-v q8_0
-      --temp 0.7
+      --temp 0.6
       --top-k 20
-      --top-p 0.8
+      --top-p 0.95
       --min-p 0.0
-      --presence-penalty 1.5
+      --presence-penalty 0.0
       --repeat-penalty 1.0
+      --reasoning on
+      --chat-template-kwargs '{"preserve_thinking": true}'
       --batch-size 4096
       --ubatch-size 512
+      --spec-type draft-mtp
+      --spec-draft-n-max 3
       --jinja
       --parallel 1
     aliases:
-      - "qwen3-vl-32b-instruct-q4"
-
-      # --reasoning on
-      # --chat-template-kwargs '{"preserve_thinking": true}'
+      - "qwen3.6-35b-a3b-q5"
+      # - "claude-haiku-4-5-20251001"
 
   # ============================= Qwen3-VL-30B-A3B =============================
 
   # https://unsloth.ai/docs/models/tutorials/qwen3-how-to-run-and-fine-tune/qwen3-vl-how-to-run-and-fine-tune
   # https://huggingface.co/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF
 
-  # 87.5 / 81.9
-  Qwen3-VL-30B-A3B-Instruct-UD-Q4_K_XL (TIV 128k / 126 ts):
+  # 89.0 / 88.1
+  Qwen3-VL-30B-A3B-Instruct-UD-Q4_K_XL (TIV 152k / 131 ts):
     cmd: >
       ${latest-llama}
+      --verbosity 3
       --mmproj /opt/llm_models/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF/mmproj-F16.gguf
       --model /opt/llm_models/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF/Qwen3-VL-30B-A3B-Instruct-UD-Q4_K_XL.gguf
       --seed 1234
       --fit off
-      --ctx-size 131072
+      --ctx-size 155648
+      --image-min-tokens 1024
       --flash-attn on
       --split-mode layer
-      --tensor-split 50,50
+      --tensor-split 48,52
       --n-gpu-layers 999
       --cache-type-k q8_0
       --cache-type-v q8_0
@@ -351,58 +264,56 @@ models:
       # --reasoning on
       # --chat-template-kwargs '{"preserve_thinking": true}'
 
+  # =============================== Qwen3-VL-32B ===============================
+
+  # https://unsloth.ai/docs/models/tutorials/qwen3-how-to-run-and-fine-tune/qwen3-vl-how-to-run-and-fine-tune
+  # https://huggingface.co/unsloth/Qwen3-VL-32B-Instruct-GGUF
+
+  # 89.2 / 87.9
+  Qwen3-VL-32B-Instruct-UD-Q4_K_XL (TIV 48k / 19 ts):
+    cmd: >
+      ${latest-llama}
+      --verbosity 3
+      --mmproj /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/mmproj-F16.gguf
+      --model /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/Qwen3-VL-32B-Instruct-UD-Q4_K_XL.gguf
+      --seed 1234
+      --fit off
+      --ctx-size 49152
+      --image-min-tokens 1024
+      --flash-attn on
+      --split-mode layer
+      --tensor-split 49,51
+      --n-gpu-layers 999
+      --cache-type-k q8_0
+      --cache-type-v q8_0
+      --temp 0.7
+      --top-k 20
+      --top-p 0.8
+      --min-p 0.0
+      --presence-penalty 1.5
+      --repeat-penalty 1.0
+      --batch-size 4096
+      --ubatch-size 512
+      --jinja
+      --parallel 1
+    aliases:
+      - "qwen3-vl-32b-instruct-q4"
+
+      # --reasoning on
+      # --chat-template-kwargs '{"preserve_thinking": true}'
+
   # ============================== gemma-4-12b-it ==============================
 
   # https://unsloth.ai/docs/models/gemma-4
   # https://huggingface.co/unsloth/gemma-4-12b-it-GGUF
 
   # MTP Version: 34.9 / 42.8
-  gemma-4-12b-it-UD-Q4_K_XL (TIVA 128k / 78 ts):
-    cmd: >
-      ${latest-llama}
-      --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q4_K_XL.gguf
-      --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/gemma-4-12b-it-Q8_0-MTP.gguf
-      --seed 1234
-      --fit off
-      --ctx-size 131072
-      --flash-attn on
-      --split-mode layer
-      --tensor-split 54,46
-      --n-gpu-layers 999
-      --cache-type-k q8_0
-      --cache-type-v q8_0
-      --temp 1.0
-      --top-k 64
-      --top-p 0.95
-      --min-p 0.05
-      --presence-penalty 0.0
-      --repeat-penalty 1.0
-      --reasoning on
-      --chat-template-kwargs '{"preserve_thinking": true}'
-      --batch-size 4096
-      --ubatch-size 512
-      --spec-type draft-mtp
-      --spec-draft-n-max 4
-      --spec-draft-device CUDA1
-      --jinja
-      --parallel 1
-    aliases:
-      - "gemma-4-12b-it-q4"
-
-      # --cache-type-k-draft q8_0
-      # --cache-type-v-draft q8_0
-
-      # NOTE: This makes the model fail!
-      # --spec-draft-n-min 0.75
-      # --spec-draft-p-min 0.75
-
-  # MTP Version.
-  # gemma-4-12b-it-UD-Q8_K_XL (128k / 65 ts): # FIXME: Update
+  # gemma-4-12b-it-UD-Q4_K_XL (TIVA 128k / 88 ts):
   #   cmd: >
   #     ${latest-llama}
+  #     --verbosity 3
   #     --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
-  #     --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q8_K_XL.gguf
+  #     --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q4_K_XL.gguf
   #     --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/gemma-4-12b-it-Q8_0-MTP.gguf
   #     --seed 1234
   #     --fit off
@@ -429,7 +340,7 @@ models:
   #     --jinja
   #     --parallel 1
   #   aliases:
-  #     - "gemma-4-12b-it-q8"
+  #     - "gemma-4-12b-it-q4"
 
       # --cache-type-k-draft q8_0
       # --cache-type-v-draft q8_0
@@ -438,50 +349,17 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # gemma-4-12b-it-UD-Q8_K_XL (128k / 27 ts): # FIXME: Update
-  #   cmd: >
-  #     ${latest-llama}
-  #     --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
-  #     --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q8_K_XL.gguf
-  #     --seed 1234
-  #     --fit off
-  #     --ctx-size 131072
-  #     --flash-attn on
-  #     --split-mode layer
-  #     --tensor-split 54,46
-  #     --n-gpu-layers 999
-  #     --cache-type-k q8_0
-  #     --cache-type-v q8_0
-  #     --temp 1.0
-  #     --top-k 64
-  #     --top-p 0.95
-  #     --min-p 0.05
-  #     --presence-penalty 0.0
-  #     --repeat-penalty 1.0
-  #     --reasoning on
-  #     --chat-template-kwargs '{"preserve_thinking": true}'
-  #     --batch-size 4096
-  #     --ubatch-size 512
-  #     --jinja
-  #     --parallel 1
-  #   aliases:
-  #     - "gemma-4-12b-it-q8"
-
-  # ============================ gemma-4-26B-A4B-it ============================
-
-  # https://unsloth.ai/docs/models/gemma-4
-  # https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF
-
-  # MTP Version: 87.4 / 82.4
-  gemma-4-26B-A4B-it-UD-Q4_K_XL (256k / 114 ts):
+  # MTP Version: 55.2 / 59.0
+  gemma-4-12b-it-UD-Q8_K_XL (128k / 70 ts):
     cmd: >
       ${latest-llama}
-      --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q4_K_XL.gguf
-      --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/gemma-4-26B-A4B-it-Q8_0-MTP.gguf
+      --verbosity 3
+      --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
+      --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q8_K_XL.gguf
+      --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/gemma-4-12b-it-Q8_0-MTP.gguf
       --seed 1234
       --fit off
-      --ctx-size 262144
+      --ctx-size 131072
       --flash-attn on
       --split-mode layer
       --tensor-split 54,46
@@ -504,7 +382,7 @@ models:
       --jinja
       --parallel 1
     aliases:
-      - "gemma-4-26b-a4b-it-q4"
+      - "gemma-4-12b-it-q8"
 
       # --cache-type-k-draft q8_0
       # --cache-type-v-draft q8_0
@@ -513,11 +391,19 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # gemma-4-26B-A4B-it-UD-Q5_K_XL (256k / 77 ts): # FIXME: Update
+  # ============================ gemma-4-26B-A4B-it ============================
+
+  # https://unsloth.ai/docs/models/gemma-4
+  # https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF
+
+  # MTP Version: 82.4 / 87.4
+  # gemma-4-26B-A4B-it-UD-Q4_K_XL (256k / 129 ts):
   #   cmd: >
   #     ${latest-llama}
+  #     --verbosity 3
   #     --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-F16.gguf
-  #     --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q5_K_XL.gguf
+  #     --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q4_K_XL.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/gemma-4-26B-A4B-it-Q8_0-MTP.gguf
   #     --seed 1234
   #     --fit off
   #     --ctx-size 262144
@@ -537,29 +423,72 @@ models:
   #     --chat-template-kwargs '{"preserve_thinking": true}'
   #     --batch-size 4096
   #     --ubatch-size 512
+  #     --spec-type draft-mtp
+  #     --spec-draft-n-max 4
+  #     --spec-draft-device CUDA1
   #     --jinja
   #     --parallel 1
   #   aliases:
-  #     - "gemma-4-26b-a4b-it-q5"
+  #     - "gemma-4-26b-a4b-it-q4"
+
+      # --cache-type-k-draft q8_0
+      # --cache-type-v-draft q8_0
+
+      # NOTE: This makes the model fail!
+      # --spec-draft-n-min 0.75
+      # --spec-draft-p-min 0.75
+
+  # MTP Version: 88.4 / 87.1
+  gemma-4-26B-A4B-it-UD-Q5_K_XL (192k / 78 ts):
+    cmd: >
+      ${latest-llama}
+      --verbosity 3
+      --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-F16.gguf
+      --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q5_K_XL.gguf
+      --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/gemma-4-26B-A4B-it-Q8_0-MTP.gguf
+      --seed 1234
+      --fit off
+      --ctx-size 196608
+      --flash-attn on
+      --split-mode layer
+      --tensor-split 51,49
+      --n-gpu-layers 999
+      --cache-type-k q8_0
+      --cache-type-v q8_0
+      --temp 1.0
+      --top-k 64
+      --top-p 0.95
+      --min-p 0.05
+      --presence-penalty 0.0
+      --repeat-penalty 1.0
+      --reasoning on
+      --chat-template-kwargs '{"preserve_thinking": true}'
+      --batch-size 4096
+      --ubatch-size 512
+      --jinja
+      --parallel 1
+    aliases:
+      - "gemma-4-26b-a4b-it-q5"
 
   # ============================== gemma-4-31B-it ==============================
 
   # https://unsloth.ai/docs/models/gemma-4
   # https://huggingface.co/unsloth/gemma-4-31B-it-GGUF
 
-  # MTP Version: 93.3 / 93.2
-  gemma-4-31B-it-UD-Q4_K_XL (128k / 20 ts):
+  # MTP Version: 88.4 / 90.7
+  gemma-4-31B-it-UD-Q4_K_XL (96k / 38 ts):
     cmd: >
       ${latest-llama}
+      --verbosity 3
       --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-F16.gguf
       --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q4_K_XL.gguf
       --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/gemma-4-31B-it-Q8_0-MTP.gguf
       --seed 1234
       --fit off
-      --ctx-size 131072
+      --ctx-size 98304
       --flash-attn on
       --split-mode layer
-      --tensor-split 52,48
+      --tensor-split 54,46
       --n-gpu-layers 999
       --cache-type-k q8_0
       --cache-type-v q8_0
@@ -588,46 +517,20 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # gemma-4-31B-it-UD-Q4_K_XL (128k / 20 ts): # FIXME: Update
+  # MTP Version: 89.0 / 88.2
+  # gemma-4-31B-it-UD-Q5_K_XL (64k / 17 ts):
   #   cmd: >
   #     ${latest-llama}
-  #     --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-F16.gguf
-  #     --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q4_K_XL.gguf
-  #     --seed 1234
-  #     --fit off
-  #     --ctx-size 131072
-  #     --flash-attn on
-  #     --split-mode layer
-  #     --tensor-split 54,46
-  #     --n-gpu-layers 999
-  #     --cache-type-k q8_0
-  #     --cache-type-v q8_0
-  #     --temp 1.0
-  #     --top-k 64
-  #     --top-p 0.95
-  #     --min-p 0.05
-  #     --presence-penalty 0.0
-  #     --repeat-penalty 1.0
-  #     --reasoning on
-  #     --chat-template-kwargs '{"preserve_thinking": true}'
-  #     --batch-size 4096
-  #     --ubatch-size 512
-  #     --jinja
-  #     --parallel 1
-  #   aliases:
-  #     - "gemma-4-31b-it-q4"
-
-  # gemma-4-31B-it-UD-Q5_K_XL (96k / 17 ts): # FIXME: Update
-  #   cmd: >
-  #     ${latest-llama}
+  #     --verbosity 3
   #     --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-F16.gguf
   #     --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q5_K_XL.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/gemma-4-31B-it-Q8_0-MTP.gguf
   #     --seed 1234
   #     --fit off
-  #     --ctx-size 98304
+  #     --ctx-size 65536
   #     --flash-attn on
   #     --split-mode layer
-  #     --tensor-split 54,46
+  #     --tensor-split 52,48
   #     --n-gpu-layers 999
   #     --cache-type-k q8_0
   #     --cache-type-v q8_0
