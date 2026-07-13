@@ -9,7 +9,7 @@ set -euo pipefail
 
 
 # ...
-RELEASE="${1:-235}"
+RELEASE="${1:-239}"
 
 # ...
 INSTALL_DIR=/opt/llama-swap
