@@ -21,7 +21,7 @@ includeAliasesInList: true
 # macros: a dictionary of string substitutions
 macros:
   "latest-llama": >
-    /opt/llama.cpp/bin/llama-server --host 127.0.0.1 --port ${PORT}
+    /opt/llama.cpp/bin/llama-server --host 0.0.0.0 --port ${PORT}
 
 models:
   # ================================ Qwen3.6-27B ===============================

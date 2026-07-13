@@ -7,4 +7,4 @@
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 
 
-exec llama-swap --config $SCRIPT_DIR/../etc/config.yaml --listen 127.0.0.1:8080
+exec llama-swap --config $SCRIPT_DIR/../etc/config.yaml --listen 0.0.0.0:8080
