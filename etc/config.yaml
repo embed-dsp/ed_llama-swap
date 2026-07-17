@@ -37,11 +37,11 @@ models:
       # --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
 
   # MTP Version: 90.2 / 89.7
-  Qwen3.6-27B-UD-Q4_K_XL (TIV 160k / 45 ts) - Thinking Precise:
+  Qwen3.6-27B-UD-Q4_K_XL (TIV 160k / 46 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q4_K_XL.gguf
       --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
@@ -84,7 +84,7 @@ models:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-27B-MTP-GGUF/Qwen3.6-27B-UD-Q5_K_XL.gguf
       --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
@@ -140,7 +140,7 @@ models:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf
       --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
@@ -191,11 +191,11 @@ models:
       # --spec-draft-p-min 0.75
 
   # MTP Version: 89.7 / 92.9
-  Qwen3.6-35B-A3B-UD-Q5_K_S (TIV 112k / 129 ts) - Thinking Precise:
+  Qwen3.6-35B-A3B-UD-Q5_K_S (TIV 112k / 127 ts) - Thinking Precise:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q5_K_S.gguf
       --chat-template-file /opt/llm_models/Moore2877/Qwen-Fixed-Chat-Templates-llamacpp/chat_template.jinja
       --seed 1234
@@ -236,7 +236,7 @@ models:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3-VL-30B-A3B-Instruct-GGUF/Qwen3-VL-30B-A3B-Instruct-UD-Q4_K_XL.gguf
       --seed 1234
       --fit off
@@ -274,7 +274,7 @@ models:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/Qwen3-VL-32B-Instruct-GGUF/Qwen3-VL-32B-Instruct-UD-Q4_K_XL.gguf
       --seed 1234
       --fit off
@@ -312,9 +312,9 @@ models:
   #   cmd: >
   #     ${latest-llama}
   #     --verbosity 3
-  #     --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
+  #     --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-BF16.gguf
   #     --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q4_K_XL.gguf
-  #     --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/gemma-4-12b-it-Q8_0-MTP.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/mtp-gemma-4-12b-it-BF16.gguf
   #     --seed 1234
   #     --fit off
   #     --ctx-size 131072
@@ -349,14 +349,14 @@ models:
       # --spec-draft-n-min 0.75
       # --spec-draft-p-min 0.75
 
-  # MTP Version: 55.2 / 59.0
-  gemma-4-12b-it-UD-Q8_K_XL (128k / 70 ts):
+  # MTP Version: 55.6 / 62.5
+  gemma-4-12b-it-UD-Q8_K_XL (128k / 67 ts):
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/gemma-4-12b-it-UD-Q8_K_XL.gguf
-      --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/gemma-4-12b-it-Q8_0-MTP.gguf
+      --model-draft /opt/llm_models/unsloth/gemma-4-12b-it-GGUF/MTP/mtp-gemma-4-12b-it-BF16.gguf
       --seed 1234
       --fit off
       --ctx-size 131072
@@ -401,9 +401,9 @@ models:
   #   cmd: >
   #     ${latest-llama}
   #     --verbosity 3
-  #     --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-F16.gguf
+  #     --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-BF16.gguf
   #     --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q4_K_XL.gguf
-  #     --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/gemma-4-26B-A4B-it-Q8_0-MTP.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/mtp-gemma-4-26B-A4B-it-Q8_0.gguf
   #     --seed 1234
   #     --fit off
   #     --ctx-size 262144
@@ -443,9 +443,9 @@ models:
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-F16.gguf
+      --mmproj /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/mmproj-BF16.gguf
       --model /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/gemma-4-26B-A4B-it-UD-Q5_K_XL.gguf
-      --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/gemma-4-26B-A4B-it-Q8_0-MTP.gguf
+      --model-draft /opt/llm_models/unsloth/gemma-4-26B-A4B-it-GGUF/MTP/mtp-gemma-4-26B-A4B-it-Q8_0.gguf
       --seed 1234
       --fit off
       --ctx-size 196608
@@ -475,17 +475,59 @@ models:
   # https://unsloth.ai/docs/models/gemma-4
   # https://huggingface.co/unsloth/gemma-4-31B-it-GGUF
 
-  # MTP Version: 88.4 / 90.7
-  gemma-4-31B-it-UD-Q4_K_XL (96k / 38 ts):
+  # MTP Version: 88.4 / 92.4
+  # gemma-4-31B-it-UD-Q4_K_XL (96k / 39 ts):
+  #   cmd: >
+  #     ${latest-llama}
+  #     --verbosity 3
+  #     --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-BF16.gguf
+  #     --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q4_K_XL.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/mtp-gemma-4-31B-it-Q8_0.gguf
+  #     --seed 1234
+  #     --fit off
+  #     --ctx-size 98304
+  #     --flash-attn on
+  #     --split-mode layer
+  #     --tensor-split 54,46
+  #     --n-gpu-layers 999
+  #     --cache-type-k q8_0
+  #     --cache-type-v q8_0
+  #     --temp 1.0
+  #     --top-k 64
+  #     --top-p 0.95
+  #     --min-p 0.05
+  #     --presence-penalty 0.0
+  #     --repeat-penalty 1.0
+  #     --reasoning on
+  #     --chat-template-kwargs '{"preserve_thinking": true}'
+  #     --batch-size 4096
+  #     --ubatch-size 512
+  #     --spec-type draft-mtp
+  #     --spec-draft-n-max 4
+  #     --spec-draft-device CUDA1
+  #     --jinja
+  #     --parallel 1
+  #   aliases:
+  #     - "gemma-4-31b-it-q4"
+
+  #     # --cache-type-k-draft q8_0
+  #     # --cache-type-v-draft q8_0
+
+  #     # NOTE: This makes the model fail!
+  #     # --spec-draft-n-min 0.75
+  #     # --spec-draft-p-min 0.75
+
+  # MTP Version: 92.9 / 93.0
+  gemma-4-31B-it-Q5_K_S.gguf (80k / 39 ts):
     cmd: >
       ${latest-llama}
       --verbosity 3
-      --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-F16.gguf
-      --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q4_K_XL.gguf
-      --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/gemma-4-31B-it-Q8_0-MTP.gguf
+      --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-BF16.gguf
+      --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-Q5_K_S.gguf
+      --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/mtp-gemma-4-31B-it-Q8_0.gguf
       --seed 1234
       --fit off
-      --ctx-size 98304
+      --ctx-size 81920
       --flash-attn on
       --split-mode layer
       --tensor-split 54,46
@@ -508,7 +550,7 @@ models:
       --jinja
       --parallel 1
     aliases:
-      - "gemma-4-31b-it-q4"
+      - "gemma-4-31b-it-q5"
 
       # --cache-type-k-draft q8_0
       # --cache-type-v-draft q8_0
@@ -522,9 +564,9 @@ models:
   #   cmd: >
   #     ${latest-llama}
   #     --verbosity 3
-  #     --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-F16.gguf
+  #     --mmproj /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/mmproj-BF16.gguf
   #     --model /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/gemma-4-31B-it-UD-Q5_K_XL.gguf
-  #     --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/gemma-4-31B-it-Q8_0-MTP.gguf
+  #     --model-draft /opt/llm_models/unsloth/gemma-4-31B-it-GGUF/MTP/mtp-gemma-4-31B-it-Q8_0.gguf
   #     --seed 1234
   #     --fit off
   #     --ctx-size 65536
